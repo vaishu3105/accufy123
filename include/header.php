@@ -1,131 +1,189 @@
 <!DOCTYPE html>
-<?php $settings = get_settings(); ?>
+<html class="no-js" lang="en" dir="<?php echo text_dir(); ?>">
+    <?php $settings = get_settings(); ?>
+    <head>
+        <meta charset="utf-8">
+        <title><?php echo html_escape($settings->site_name) ?> - <?php echo html_escape($settings->site_title) ?></title>
+        <meta charset="utf-8">
+        <meta name="author" content="<?php echo html_escape($settings->site_name) ?>">
+        <meta name="description" content="<?php echo html_escape($settings->description) ?>">
+        <meta name="keywords" content="<?php echo html_escape($settings->keywords) ?>">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<html lang="en" dir="<?php echo($settings->dir); ?>">
-<head>
-  
-  <?php $user = get_logged_user($this->session->userdata('id')); ?>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <link rel="icon" href="<?php echo base_url($settings->favicon) ?>">
+        <meta name="theme-color" content="#056EB9" />
+        <meta name="msapplication-navbutton-color" content="#056EB9" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="#056EB9" />
 
-  <title><?php echo html_escape($settings->site_name); ?> &bull; <?php if(isset($this->business->name)){echo html_escape($this->business->name).' &bull;';} ?> <?php if(isset($page_title)){echo html_escape($page_title);}else{echo "Dashboard";} ?></title>
-  
-  <!-- Bootstrap 4.0-->
-  <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/css/bootstrap.min.css">
-  <!-- Bootstrap 4.0-->
-  <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/css/bootstrap-extend.css">
-  <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/css/font-awesome.min.css">
-  <link href="<?php echo base_url() ?>assets/admin/css/toast.css" rel="stylesheet" />
-  <link href="<?php echo base_url() ?>assets/admin/css/bootstrap-tagsinput.css" rel="stylesheet" />
-  <link href="<?php echo base_url() ?>assets/admin/css/sweet-alert.css" rel="stylesheet" />
-  <link href="<?php echo base_url() ?>assets/admin/css/animate.min.css" rel="stylesheet" />
-  <!-- DataTables -->
-  <link href="<?php echo base_url() ?>assets/admin/js/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
-  <!-- Theme style -->
-  <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/css/master_style.css">
-  
-  <?php if (text_dir() == 'rtl'): ?>
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/css/custom-rtl.css">
-    <link rel="stylesheet" href="<?php echo base_url()?>assets/admin/css/bootstrap-rtl.min.css" crossorigin="anonymous">
-  <?php endif ?>
-  
-  <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/css/skins/_all-skins.css">   
-  <link href="<?php echo base_url() ?>assets/admin/css/bootstrap-datepicker.min.css" rel="stylesheet">
-  <link href="<?php echo base_url() ?>assets/admin/css/icons.css" rel="stylesheet">
-  <link rel="stylesheet" href="<?php echo base_url() ?>assets/front/css/simple-line-icons.css">
-  <link rel="stylesheet" href="<?php echo base_url() ?>assets/front/font/flaticon.css">
-  <link href="<?php echo base_url() ?>assets/admin/css/bootstrap-switch.min.css" rel="stylesheet">
-  <link href="<?php echo base_url() ?>assets/admin/css/select2.min.css" rel="stylesheet" />
-  <link href="<?php echo base_url() ?>assets/admin/css/themify.min.css" rel="stylesheet" />
-  <link href="<?php echo base_url() ?>assets/admin/css/bootstrap4-toggle.min.css" rel="stylesheet" />
-  
-  <!-- <link href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css" rel="stylesheet" /> -->
+        <!-- Favicons
+        ================================================== -->
+        <link rel="icon" href="<?php echo base_url($settings->favicon) ?>">
+        <link rel="apple-touch-icon" href="img/apple-touch-icon.html">
+        <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.html">
+        <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.html">
+        <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/css/bootstrap.min.css">
+        <?php if (text_dir() == 'rtl'): ?>
+            <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/css/custom-rtl.css">
+            <link rel="stylesheet" href="<?php echo base_url()?>assets/admin/css/bootstrap-rtl.min.css" crossorigin="anonymous">
+        <?php endif ?>
 
-  <style type="text/css">
-    .radio input[type="radio"],
-    .radio-inline input[type="radio"],
-    .checkbox input[type="checkbox"],
-    .checkbox-inline input[type="checkbox"] {
-      margin-right: -20px !important;
-    }
-  </style>
-  
-  <!-- Color picker plugins css -->
-  <link href="<?php echo base_url() ?>assets/admin/plugins/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+        <!-- styles
+        ================================================== -->
+        <link rel="stylesheet" href="<?php echo base_url() ?>assets/front/css/cristal.min.css" type="text/css">
+        <link rel="stylesheet" href="<?php echo base_url() ?>assets/front/css/style.min.css" type="text/css">
 
-  <script type="text/javascript">
-   var csrf_token = '<?php echo $this->security->get_csrf_hash(); ?>';
-   var token_name = '<?php echo $this->security->get_csrf_token_name();?>'
- </script>
-</head>
+        <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/css/font-awesome.min.css">
+        <link href="<?php echo base_url() ?>assets/admin/css/toast.css" rel="stylesheet" />
+        <link href="<?php echo base_url() ?>assets/admin/css/sweet-alert.css" rel="stylesheet" />
+        <link rel="stylesheet" href="<?php echo base_url() ?>assets/front/css/simple-line-icons.css">
+        <link href="<?php echo base_url() ?>assets/front/css/select2.min.css" rel="stylesheet" />
 
-<body class="hold-transition skin-blue-light sidebar-mini">
-  <!-- Site wrapper -->
-  <div class="wrapper">
-    <header class="main-header">
-      <?php if (is_admin()): ?>
-        <a target="_blank" href="<?php echo base_url() ?>" class="switch_businesss logo text-center">
-          <span class="logo-lg">
-            <img width="130px" src="<?php echo base_url($settings->logo) ?>" alt="<?php echo html_escape($settings->site_name); ?>"> 
-          </span>
-        </a>
-      <?php else: ?>
+        <link href="<?php echo base_url() ?>assets/front/css/aos.css" rel="stylesheet" />
+
+        <link href="https://fonts.googleapis.com/css?family=Alata&display=swap', 'Quicksand:300,400,700&display=swap" rel="stylesheet">
+
+       <!--  <link href="https://fonts.googleapis.com/css?family=Alata&display=swap" rel="stylesheet"> -->
+
+        <script type="text/javascript">
+           var csrf_token = '<?php echo $this->security->get_csrf_hash(); ?>';
+           var token_name = '<?php echo $this->security->get_csrf_token_name();?>'
+        </script>
+
+        <script type="text/javascript">
+            var _html = document.documentElement,
+                isTouch = (('ontouchstart' in _html) || (navigator.msMaxTouchPoints > 0) || (navigator.maxTouchPoints));
+
+            _html.className = _html.className.replace("no-js","js");
+            _html.classList.add( isTouch ? "touch" : "no-touch");
+        </script>
+        <script type="text/javascript" src="<?php echo base_url() ?>assets/front/js/device.min.js"></script>
+
         
-        <a href="#" class="switch_business logo text-centers">
-          <span class="logo-lg">
-            <img width="40px" src="<?php echo base_url($settings->favicon) ?>" alt="<?php echo html_escape($settings->site_name); ?>"> 
-            <span><?php echo html_escape($this->business->name); ?> </span>
-          </span> 
-          <span class="buss-arrow pull-right"><i class="icon-arrow-right"></i></span>
-        </a>
+        <?php if (!empty($settings->google_analytics)): ?>
+            <!-- google analytics -->
+            <?php echo base64_decode($settings->google_analytics) ?>
+        <?php endif ?>
 
-        <div class="business_switch_panel animate-ltr" style="display: none;">
-          <div class="buss_switch_panel_header">
-            <img width="40px" src="<?php echo base_url($settings->favicon) ?>" alt="<?php echo html_escape($settings->site_name); ?>"> 
-            <span class="acc">Your <?php echo html_escape($settings->site_name); ?> <?php echo trans('accounts') ?></span>
-            <span class="business_close pull-<?php echo($settings->dir == 'rtl') ? 'left' : 'right'; ?>">×</span>
-          </div>
+        <?php if ($settings->enable_captcha == 1 && $settings->captcha_site_key != ''): ?>
+            <script src='https://www.google.com/recaptcha/api.js'></script>
+        <?php endif; ?>
 
-          <div class="buss_switch_panel_body">
-            <ul class="switcher_business_menu">
-                <?php foreach (get_my_business() as $mybuss): ?>
-                  <li class="business_menu_item <?php if($this->business->uid == $mybuss->uid){echo "default";} ?>">
-                    <a class="business_menu_item_link" href="<?php echo base_url('admin/profile/switch_business/'.$mybuss->uid) ?>">
-                      <span class="business-menu_item_label">
-                        <?php echo $mybuss->name ?>
-                        <?php if ($this->business->uid == $mybuss->uid): ?>
-                          <span class="is_default pull-right"><i class="flaticon-checked text-success"></i></span>
-                        <?php endif ?>
-                      </span>
-                    </a>
-                  </li>
-                <?php endforeach ?>
-            </ul>
+    </head>
 
-            <div class="seperater"></div>
+    <body>
+        <div>
+           
+            <!-- start header -->
+            <?php if (isset($page_title) && $page_title != 'Register'): ?>
+                <header id="top-bar" class="top-bar top-bar--dark" data-nav-anchor="true">
+                    <div class="top-bar__inner">
+                        <div class="container-fluid">
+                            <div class="row align-items-center no-gutters">
 
-            <a class="new_business_link" href="<?php echo base_url('admin/business') ?>"><i class="icon-briefcase"></i> <span><?php echo trans('manage-business') ?></span></a>
-            <a class="new_business_link" href="<?php echo base_url('admin/business/invoice_customize') ?>"><i class="flaticon-edit"></i> <span><?php echo trans('invoice-customization') ?></span></a>
-            <a class="new_business_link" href="<?php echo base_url('admin/profile') ?>"><i class="flaticon-user-1"></i> <span><?php echo trans('manage-profile') ?></span></a>
-            <a class="new_business_link" href="<?php echo base_url('auth/logout') ?>"><i class="icon-logout"></i> <span><?php echo trans('sign-out') ?></span></a>
-          </div>
+                                <a class="top-bar__logo site-logo" href="<?php echo base_url() ?>">
+                                    <img class="img-fluid" src="<?php echo base_url($settings->logo) ?>" width="159" height="45" alt="demo" />
+                                </a>
 
-          <div class="buss_switch_panel_footer">
-            
-          </div>
-        </div>
-      <?php endif; ?>
+                                <a id="top-bar__navigation-toggler" class="top-bar__navigation-toggler" href="javascript:void(0);">
+                                    <span></span>
+                                </a>
 
-      <nav class="navbar navbar-static-top hidden-md">
-        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-          <span class="sr-only">Toggle navigation</span> 
-        </a>
-      </nav>
+                                <div class="top-bar__collapse">
+                                    <nav id="top-bar__navigation" class="top-bar__navigation" role="navigation">
+                                        <ul>
+                                            <li>
+                                                <a class="nav-link <?php if(isset($page_title) && $page_title == 'Home'){echo "active";} ?>" href="<?php echo base_url() ?>"><?php echo trans('home') ?></a>
+                                            </li>
 
-    </header>
+                                            <li>
+                                                <a class="nav-link <?php if(isset($page_title) && $page_title == 'Features'){echo "active";} ?>" href="<?php echo base_url('features') ?>"><?php echo trans('features') ?></a>
+                                            </li>
 
+                                            <li>
+                                                <a class="nav-link <?php if(isset($page_title) && $page_title == 'Pricing'){echo "active";} ?>" href="<?php echo base_url('pricing') ?>"><?php echo trans('pricing') ?></a>
+                                            </li>
+                                           
+                                            <?php if ($settings->enable_blog == 1): ?>
+                                            <li>
+                                                <a class="nav-link <?php if(isset($page_title) && $page_title == 'Blog Posts'){echo "active";} ?>" href="<?php echo base_url('blog') ?>"><?php echo trans('blogs') ?></a>
+                                            </li>
+                                            <?php endif ?>
 
+                                            <?php if ($settings->enable_faq == 1): ?>
+                                            <li>
+                                                <a class="nav-link <?php if(isset($page_title) && $page_title == 'Faqs'){echo "active";} ?>" href="<?php echo base_url('faqs') ?>"><?php echo trans('faqs') ?></a>
+                                            </li>
+                                            <?php endif ?>
+
+                                            <li>
+                                                <a class="nav-link <?php if(isset($page_title) && $page_title == 'Contact'){echo "active";} ?>" href="<?php echo base_url('contact') ?>"><?php echo trans('contact') ?> </a>
+                                            </li>
+
+                                            <?php if (!empty(get_pages())): ?>
+                                                <li class="has-submenu">
+                                                    <a class="nav-link" href="javascript:void(0);"><?php echo trans('pages') ?></a>
+
+                                                    <ul class="submenu">
+                                                        <?php foreach (get_pages() as $page): ?>
+                                                            <li><a href="<?php echo base_url('page/'.$page->slug) ?>"><?php echo html_escape($page->title) ?></a></li>
+                                                        <?php endforeach ?>
+                                                    </ul>
+                                                </li>
+                                            <?php endif ?>
+
+                                            <?php if (settings()->enable_multilingual == 1): ?>
+                                                <li class="has-submenu">
+                                                    <a class="nav-link" href="javascript:void(0);"><?php echo lang_short_form(); ?></a>
+                                                    <ul class="submenu">
+                                                        <?php foreach (get_language() as $lang): ?>
+                                                            <li><a href="<?php echo base_url('home/switch_lang/'.$lang->slug) ?>"><?php echo html_escape($lang->name) ?></a></li>
+                                                        <?php endforeach ?>
+                                                    </ul>
+                                                </li>
+                                            <?php endif ?>
+
+                                        </ul>
+                                    </nav>
+
+                                    <div id="top-bar__action" class="top-bar__action">
+                                        <div class="d-xl-flex flex-xl-row flex-xl-wrap align-items-xl-center">
+
+                                            <?php //if (settings()->enable_multilingual == 1): ?>
+                                                <!-- <nav class="top-bar__navigation" role="navigation hidden-xs">
+                                                    <ul>
+                                                        <li class="has-submenu">
+                                                            <a class="nav-link" href="javascript:void(0);"><?php //echo lang_short_form(); ?></a>
+                                                            <ul class="submenu">
+                                                                <?php //foreach (get_language() as $lang): ?>
+                                                                    <li><a href="<?php //echo base_url('home/switch_lang/'.$lang->slug) ?>"><?php //echo html_escape($lang->name) ?></a></li>
+                                                                <?php //endforeach ?>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </nav> -->
+                                            <?php //endif ?>
+
+                                            <div class="top-bar__auth-btns">
+                                                <?php if (is_admin()): ?>
+                                                    <a class="custom-btn custom-btn--medium custom-btn--style-3" href="<?php echo base_url('admin/dashboard') ?>"><i class="fa fa-dashboard"></i> <?php echo trans('dashboard') ?></a>
+                                                <?php elseif(is_user()): ?>
+                                                     <a class="custom-btn custom-btn--medium custom-btn--style-3" href="<?php echo base_url('admin/dashboard/business') ?>"><i class="fa fa-dashboard"></i> <?php echo trans('dashboard') ?></a>
+                                                <?php else: ?>
+                                                    <a href="<?php echo base_url('login') ?>"><?php echo trans('sign-in') ?></a>
+                                                    <a class="custom-btn custom-btn--medium custom-btn--style-2" href="<?php echo base_url('register') ?>"><?php echo trans('create-account') ?></a>
+                                                    
+                                                <?php endif ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            <?php endif ?>
+            <!-- end header -->
+            <div class="spacer py-8"></div>
+            <!-- start main -->
+            <main role="main">

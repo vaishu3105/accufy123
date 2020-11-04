@@ -1,48 +1,41 @@
-<div class="content-wrapper">
+<section class="section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6 text-center">
+                <h2><?php echo trans('get-in-touch') ?></h2>
+                <form method="post" action="<?php echo base_url('home/send_message'); ?>">
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <div class="input-wrp">
+                                <input class="textfield textfield--grey" placeholder="<?php echo trans('full-name') ?>" name="name" type="text" />
+                            </div>
+                        </div>
 
-  <!-- Main content -->
-  <section class="content container">
+                        <div class="col-12 col-md-6">
+                            <div class="input-wrp">
+                                <input class="textfield textfield--grey" placeholder="<?php echo trans('email') ?>" name="email" type="email" inputmode="email" x-inputmode="email" required />
+                            </div>
+                        </div>
+                    </div>
 
-    <div class="list_area container">
-      <h3 class="box-title"><?php echo trans('contacts') ?> </h3>
-    
-     
-      <div class="col-md-12 col-sm-12 col-xs-12 scroll table-responsive p-0">
-          <table class="table table-bordered <?php if(count($contacts) > 10){echo "datatable";} ?>" id="dg_table">
-              <thead>
-                  <tr>
-                      <th>#</th>
-                      <th><?php echo trans('name') ?></th>
-                      <th><?php echo trans('email') ?></th>
-                      <th><?php echo trans('message') ?></th>
-                      <th><?php echo trans('date') ?></th>
-                      <th><?php echo trans('action') ?></th>
-                  </tr>
-              </thead>
-              <tbody>
-                <?php $i=1; foreach ($contacts as $contact): ?>
-                  <tr id="row_<?php echo html_escape($contact->id); ?>">
-                      
-                      <td><?php echo $i; ?></td>
-                      <td><?php echo html_escape($contact->name); ?></td>
-                      <td><?php echo html_escape($contact->email); ?></td>
-                      <td><?php echo html_escape($contact->message); ?></td>
-                      <td><span class="label label-default"> <?php echo my_date_show_time($contact->created_at); ?> </span></td>
-                      
-                      <td class="actions" width="12%">
-                        <a data-val="Contact" data-id="<?php echo html_escape($contact->id); ?>" href="<?php echo base_url('admin/contact/delete/'.html_escape($contact->id));?>" class="on-default remove-row delete_item" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash-o"></i></a> &nbsp;
+                    <label class="input-wrp">
+                        <textarea class="textfield textfield--grey" placeholder="<?php echo trans('write-your-message') ?>" name="message" required></textarea>
+                    </label>
 
-                      </td>
-                  </tr>
-                  
-                <?php $i++; endforeach; ?>
-              </tbody>
-          </table>
-      </div>
+                    <div class="input-wrp">
+                        <?php if ($settings->enable_captcha == 1 && $settings->captcha_site_key != ''): ?>
+                            <div class="g-recaptcha pull-left" data-sitekey="<?php echo html_escape($settings->captcha_site_key); ?>"></div>
+                        <?php endif ?>
+                    </div>
+                    
+                    <!-- csrf token -->
+                    <input type="hidden" name="<?php echo $this->security->get_csrf_token_name();?>" value="<?php echo $this->security->get_csrf_hash();?>">
+                    <button class="custom-btn custom-btn--medium custom-btn--style-3" type="submit" role="button"><?php echo trans('send') ?></button>
 
-     
+                    <div class="form__note"></div>
+                </form>
+            </div>
+            <div class="spacer py-4 d-lg-none"></div>
+        </div>
     </div>
-    
-
-  </section>
-</div>
+</section>
