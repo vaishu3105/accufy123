@@ -13,16 +13,15 @@
     display: block;
     height: 45px;
     user-select: none;
-    -webkit-user-select: none;}
+    -webkit-user-select: none; }
     .select2-container .select2-selection--single .select2-selection__rendered {
-      display: block;
-      padding-left: 0px;
-      padding-right: 20px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      font-size: 13px;
-      font-weight: 600; }
+    display: block;
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 16px;}
     .select2-container .select2-selection--single .select2-selection__clear {
       position: relative; }
   .select2-container[dir="rtl"] .select2-selection--single .select2-selection__rendered {
@@ -54,7 +53,7 @@
 
 .select2-dropdown {
   background-color: white;
-  border: 1px solid #fafafa;
+  border: 1px solid #aaa;
   border-radius: 4px;
   box-sizing: border-box;
   display: block;
@@ -64,8 +63,7 @@
   z-index: 1051; }
 
 .select2-results {
-  display: block;}
-  
+  display: block; }
 
 .select2-results__options {
   list-style: none;
@@ -73,15 +71,13 @@
   padding: 0; }
 
 .select2-results__option {
-  padding: 8px 12px;
+  padding: 6px;
   user-select: none;
-  -webkit-user-select: none;}
-
+  -webkit-user-select: none; }
   .select2-results__option[aria-selected] {
     cursor: pointer;
     font-size: 13px;
-    font-weight: 700;
-    color: #333; }
+    font-weight: 500; }
 
 .select2-container--open .select2-dropdown {
   left: 0; }
@@ -94,8 +90,7 @@
 .select2-container--open .select2-dropdown--below {
   border-top: none;
   border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  box-shadow: rgba(77, 101, 117, 0.1) 0px 0px 0px 1px, rgba(77, 101, 117, 0.2) 0px 3px 10px 0px;}
+  border-top-right-radius: 0; }
 
 .select2-search--dropdown {
   display: block;
@@ -103,9 +98,7 @@
   .select2-search--dropdown .select2-search__field {
     padding: 4px;
     width: 100%;
-    box-sizing: border-box;
-    border-radius: 2px;
-    height: 40px;}
+    box-sizing: border-box; }
     .select2-search--dropdown .select2-search__field::-webkit-search-cancel-button {
       -webkit-appearance: none; }
   .select2-search--dropdown.select2-search--hide {
@@ -142,23 +135,23 @@
 
 .select2-container--default .select2-selection--single {
   background-color: #fff;
-  border: 1px solid #ddd;
+  border: 1px solid #f1f1f1;
   border-radius: 4px; }
   .select2-container--default .select2-selection--single .select2-selection__rendered {
-    color: #444;
-    line-height: 28px; }
+    color: #777;
+    line-height: 42px; }
   .select2-container--default .select2-selection--single .select2-selection__clear {
     cursor: pointer;
     float: right;
-    font-weight: bold; }
+    font-weight: 500; }
   .select2-container--default .select2-selection--single .select2-selection__placeholder {
     color: #999; }
   .select2-container--default .select2-selection--single .select2-selection__arrow {
     height: 26px;
     position: absolute;
-    top: 10px;
-    right: 6px;
-    width: 20px;}
+    top: 4px;
+    right: 1px;
+    width: 20px; }
     .select2-container--default .select2-selection--single .select2-selection__arrow b {
       border-color: #888 transparent transparent transparent;
       border-style: solid;
@@ -273,10 +266,10 @@
   padding: 0; }
 
 .select2-container--default .select2-results__option[aria-disabled=true] {
-  color: #333; }
+  color: #999; }
 
 .select2-container--default .select2-results__option[aria-selected=true] {
-  background-color: rgb(240, 244, 250); }
+  background-color: #ddd; }
 
 .select2-container--default .select2-results__option .select2-results__option {
   padding-left: 1em; }
@@ -299,10 +292,10 @@
             padding-left: 6em; }
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
-  background-color: rgb(240, 244, 250);
-  color: #333;
+  background-color: #5897fb;
+  color: white;
   font-size: 13px;
-  font-weight: 700; }
+  font-weight: 500; }
 
 .select2-container--default .select2-results__group {
   cursor: default;
